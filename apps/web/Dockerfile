@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
@@ -18,8 +18,14 @@ COPY . .
 # Build the app
 RUN pnpm run build
 
-# Expose port
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY --from=builder /.next /app/.next
+COPY --from=builder /package.json /app/package.json
+COPY --from=builder /node_modules /app/node_modules
+
 EXPOSE 3000
 
-# Start the application
-CMD ["pnpm", "start"]
+CMD ["next", "start"]
