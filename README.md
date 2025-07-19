@@ -125,7 +125,7 @@ pnpm exec turbo link
 
 ## Useful Links
 
-Learn more about the power of Turborepo:
+Learn more about the power of Turborepo
 
 - [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
 - [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
