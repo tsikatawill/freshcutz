@@ -17,4 +17,4 @@ jobs:
               run: docker stop freshcutz-api && docker rm freshcutz-api || true
 
             - name: Run Container
-              run: docker run -d --name freshcutz-api -p 80:4000 ${{ secrets.DOCKER_USERNAME }}/freshcutz-api
+              run: docker run -d --name freshcutz-api -p 4000:4000 ${{ secrets.DOCKER_USERNAME }}/freshcutz-api
