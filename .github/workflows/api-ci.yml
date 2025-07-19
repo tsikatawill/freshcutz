@@ -3,6 +3,7 @@ name: Backend CI
 on:
     push:
         branches: ["main"]
+        paths: ["apps/api/**"]
 
 jobs:
     build:
@@ -19,7 +20,7 @@ jobs:
                   password: ${{ secrets.DOCKER_PASSWORD }}
 
             - name: Build Docker Image
-              run: docker build -t freshcutz-api .
+              run: docker build -t freshcutz-api ./apps/api
 
             - name: Push Docker Image
               run: docker push freshcutz-api
